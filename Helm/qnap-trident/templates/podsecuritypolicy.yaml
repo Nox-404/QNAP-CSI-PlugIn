@@ -1,3 +1,4 @@
+{{- if lt (.Capabilities.KubeVersion.Minor|int) 25 }}
 apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
@@ -16,3 +17,4 @@ spec:
     rule: RunAsAny
   volumes:
     - '*'
+{{- end }}
